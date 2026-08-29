@@ -1,6 +1,6 @@
 {
   "name": "@loggifycloud/nestjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Loggify NestJS monitoring SDK",
   "license": "MIT",
   "main": "dist/index.js",
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/loggifycloud/nestjs-sdk.git"
   },
   "dependencies": {
-    "@loggifycloud/node": "^0.1.0"
+    "@loggifycloud/node": "^0.1.1"
   },
   "peerDependencies": {
     "@nestjs/common": ">=9.0.0",
