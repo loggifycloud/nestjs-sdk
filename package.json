@@ -1,16 +1,26 @@
 {
-  "name": "@loggify/nestjs",
+  "name": "@loggifycloud/nestjs",
   "version": "0.1.0",
   "description": "Loggify NestJS monitoring SDK",
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "npm run build && node --test"
+    "test": "npm run build && node --test",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loggifycloud/nestjs-sdk.git"
   },
   "dependencies": {
-    "@loggify/node": "file:../node-sdk"
+    "@loggifycloud/node": "^0.1.0"
   },
   "peerDependencies": {
     "@nestjs/common": ">=9.0.0",

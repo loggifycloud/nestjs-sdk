@@ -1,6 +1,6 @@
 import { ArgumentsHost, Catch, HttpException, Injectable, Optional } from '@nestjs/common';
 import { BaseExceptionFilter, HttpAdapterHost } from '@nestjs/core';
-import { Monitor } from '@loggify/node';
+import { Monitor } from '@loggifycloud/node';
 
 @Catch()
 @Injectable()

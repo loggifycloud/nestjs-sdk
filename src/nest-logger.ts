@@ -1,4 +1,4 @@
-import { Monitor, type LogLevel } from '@loggify/node';
+import { Monitor, type LogLevel } from '@loggifycloud/node';
 
 const PATCH = Symbol.for('loggify.nestjs.console-logger-patched');
 

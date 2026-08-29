@@ -1,12 +1,12 @@
-# @loggify/nestjs
+# @loggifycloud/nestjs
 
-NestJS wrapper around `@loggify/node`. Incoming HTTP is still captured by the Node agent; this package adds a module, Nest route templates (`GET /orders/:id` instead of `/orders/42`), exception capture, and a `LoggerService`.
+NestJS wrapper around `@loggifycloud/node`. Incoming HTTP is still captured by the Node agent; this package adds a module, Nest route templates (`GET /orders/:id` instead of `/orders/42`), exception capture, and a `LoggerService`.
 
 Call `Monitor.init` **before** `NestFactory.create` - or at least before requiring `pg`, `mysql`, `ioredis`, or `mongodb` - so datastore queries become child spans.
 
 ```ts
 // instrument.ts
-import { Monitor } from '@loggify/nestjs';
+import { Monitor } from '@loggifycloud/nestjs';
 
 Monitor.init({
   apiKey: process.env.LOGGIFY_KEY!,
@@ -31,7 +31,7 @@ bootstrap();
 ```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
-import { LoggifyModule } from '@loggify/nestjs';
+import { LoggifyModule } from '@loggifycloud/nestjs';
 
 @Module({
   imports: [LoggifyModule.forRoot()],
@@ -64,11 +64,11 @@ GET /orders/:id
 
 Inbound `traceparent` continues the trace. `LoggifyModule` patches `axios` / `axios.create` when that package is installed (Nest `HttpService` included) so outbound calls inject the client span. `Monitor.extractTraceparent` / `injectTraceparent` are available for other transports.
 
-No extra middleware is required. `pg`, `mysql` / `mysql2`, `ioredis` / `redis`, and `mongodb` are patched by `@loggify/node` when the package is loaded. Unhandled HTTP 5xx exceptions are captured by `LoggifyExceptionFilter`.
+No extra middleware is required. `pg`, `mysql` / `mysql2`, `ioredis` / `redis`, and `mongodb` are patched by `@loggifycloud/node` when the package is loaded. Unhandled HTTP 5xx exceptions are captured by `LoggifyExceptionFilter`.
 
 ## Logger
 
-Keep using Nest's `Logger` and Pino. After `LoggifyModule.forRoot()`, `new Logger('OrdersService').log(...)` is captured automatically (Nest writes to `stdout`, not `console`, so this is patched separately). Pino is captured by `@loggify/node` after `Monitor.init`.
+Keep using Nest's `Logger` and Pino. After `LoggifyModule.forRoot()`, `new Logger('OrdersService').log(...)` is captured automatically (Nest writes to `stdout`, not `console`, so this is patched separately). Pino is captured by `@loggifycloud/node` after `Monitor.init`.
 
 ### NestJS Logger
 
@@ -89,7 +89,7 @@ export class OrdersService {
 No `useLogger` required. To send Nest's own framework logs as structured Loggify logs instead of (or in addition to) stdout formatting, you can still replace the adapter:
 
 ```ts
-import { LoggifyLogger } from '@loggify/nestjs';
+import { LoggifyLogger } from '@loggifycloud/nestjs';
 
 const app = await NestFactory.create(AppModule, { bufferLogs: true });
 app.useLogger(app.get(LoggifyLogger));
@@ -125,7 +125,7 @@ Opt out with `captureLoggers: false`. Do not `app.useLogger(LoggifyLogger)` if y
 ## Logs
 
 ```ts
-import { Monitor } from '@loggify/nestjs';
+import { Monitor } from '@loggifycloud/nestjs';
 
 Monitor.info('order accepted', { orderId: 'ord_123' });
 Monitor.warn('queue delayed', { lagMs: 420 });

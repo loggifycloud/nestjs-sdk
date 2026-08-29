@@ -1,6 +1,6 @@
 import { DynamicModule, Module, Provider } from '@nestjs/common';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
-import { Monitor, MonitorOptions } from '@loggify/node';
+import { Monitor, MonitorOptions } from '@loggifycloud/node';
 import { LoggifyExceptionFilter } from './filter';
 import { LoggifyInterceptor } from './interceptor';
 import { LoggifyLogger } from './logger';

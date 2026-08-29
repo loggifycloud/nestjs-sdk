@@ -1,5 +1,5 @@
 import { LoggerService } from '@nestjs/common';
-import { Monitor } from '@loggify/node';
+import { Monitor } from '@loggifycloud/node';
 
 export class LoggifyLogger implements LoggerService {
   log(message: unknown, ...optionalParams: unknown[]) {

@@ -1,4 +1,4 @@
-import { Monitor } from '@loggify/node';
+import { Monitor } from '@loggifycloud/node';
 
 const MARKER = Symbol.for('loggify.nestjs.axios-patched');
 const SPAN = Symbol.for('loggify.nestjs.axios-span');

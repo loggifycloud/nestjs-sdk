@@ -7,7 +7,7 @@ export {
   type SpanKind,
   type SpanOptions,
   type SpanStatus,
-} from '@loggify/node';
+} from '@loggifycloud/node';
 export { instrumentAxios } from './axios';
 export { LoggifyExceptionFilter } from './filter';
 export { LoggifyInterceptor } from './interceptor';

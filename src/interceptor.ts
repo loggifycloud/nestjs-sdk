@@ -1,5 +1,5 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { Monitor } from '@loggify/node';
+import { Monitor } from '@loggifycloud/node';
 import { Observable } from 'rxjs';
 import { instrumentNestLogger } from './nest-logger';
 import { nestHttpMethod, nestHttpRoute } from './route';
