@@ -1,5 +1,7 @@
 # @loggifycloud/nestjs
 
+Documentation: [https://loggify.cloud/docs](https://loggify.cloud/docs)
+
 NestJS wrapper around `@loggifycloud/node`. Incoming HTTP is still captured by the Node agent; this package adds a module, Nest route templates (`GET /orders/:id` instead of `/orders/42`), exception capture, and a `LoggerService`.
 
 Call `Monitor.init` **before** `NestFactory.create` - or at least before requiring `pg`, `mysql`, `ioredis`, or `mongodb` - so datastore queries become child spans.
